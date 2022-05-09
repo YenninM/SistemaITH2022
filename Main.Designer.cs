@@ -77,6 +77,7 @@ namespace SistemaITH
             this.noControl_tbx.Size = new System.Drawing.Size(408, 26);
             this.noControl_tbx.TabIndex = 7;
             this.noControl_tbx.Text = "Número de Control";
+            this.noControl_tbx.TextChanged += new System.EventHandler(this.noControl_tbx_TextChanged);
             this.noControl_tbx.Enter += new System.EventHandler(this.noControl_tbx_Enter);
             this.noControl_tbx.Leave += new System.EventHandler(this.noControl_tbx_Leave);
             // 
@@ -91,6 +92,8 @@ namespace SistemaITH
             this.carr_tbx.Size = new System.Drawing.Size(408, 26);
             this.carr_tbx.TabIndex = 8;
             this.carr_tbx.Text = "Carrera";
+            this.carr_tbx.Enter += new System.EventHandler(this.carr_tbx_Enter);
+            this.carr_tbx.Leave += new System.EventHandler(this.carr_tbx_Leave);
             // 
             // nombreA_tbx
             // 
@@ -167,6 +170,8 @@ namespace SistemaITH
             this.semestre_tbx.Size = new System.Drawing.Size(408, 26);
             this.semestre_tbx.TabIndex = 10;
             this.semestre_tbx.Text = "Semestre";
+            this.semestre_tbx.Enter += new System.EventHandler(this.semestre_tbx_Enter);
+            this.semestre_tbx.Leave += new System.EventHandler(this.semestre_tbx_Leave);
             // 
             // salon_tbx
             // 
@@ -179,6 +184,8 @@ namespace SistemaITH
             this.salon_tbx.Size = new System.Drawing.Size(408, 26);
             this.salon_tbx.TabIndex = 9;
             this.salon_tbx.Text = "Salón";
+            this.salon_tbx.Enter += new System.EventHandler(this.salon_tbx_Enter);
+            this.salon_tbx.Leave += new System.EventHandler(this.salon_tbx_Leave);
             // 
             // cancel_btn
             // 
@@ -205,6 +212,7 @@ namespace SistemaITH
             this.confirm_btn.TabIndex = 12;
             this.confirm_btn.Text = "Confirmar";
             this.confirm_btn.UseVisualStyleBackColor = false;
+            this.confirm_btn.Click += new System.EventHandler(this.confirm_btn_Click);
             // 
             // loginadmin_lbl
             // 
