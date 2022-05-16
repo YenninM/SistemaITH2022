@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using WebSocketSharp;
+using System.Net;
+using System.Web;
+using System.Web.UI;
+using System.IO;
+using System.Text.Json;
 
 namespace SistemaITH
 {
@@ -17,6 +22,10 @@ namespace SistemaITH
         public Main()
         {
             InitializeComponent();
+            request.Method = "GET";
+            requestPost.Method = "POST";
+            requestPost.ContentType = "application/json";
+            response = (HttpWebResponse)request.GetResponse();
         }
 
 
@@ -26,8 +35,10 @@ namespace SistemaITH
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public string numcontrol;
-        WebSocket ws = new WebSocket("ws://localhost:5000/");
-
+        readonly WebSocket ws = new WebSocket("ws://localhost:3000");
+        WebRequest request = WebRequest.Create("http://localhost:3000");
+        WebRequest requestPost = WebRequest.Create("http://localhost:3000");
+        HttpWebResponse response = null;
         private void Main_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -106,16 +117,37 @@ namespace SistemaITH
         }
 
         private void confirm_btn_Click(object sender, EventArgs e)
-        {               
-                ws.OnMessage += Ws_OnMessage;
-
-                ws.Connect();
-                MessageBox.Show(numcontrol);
-                ws.Send("hola");
-        }
-        private static void Ws_OnMessage(object sender, MessageEventArgs e)
         {
-            MessageBox.Show("Recive from the server: " + e.Data);
+            try
+            {
+
+            using (var streamWriter = new StreamWriter(requestPost.GetRequestStream()))
+            {
+                streamWriter.Write("{\"data\":"+"\""+numcontrol +"\""+"}");
+                streamWriter.Flush();
+                streamWriter.Close();
+
+                var httpResponse = (HttpWebResponse)requestPost.GetResponse();
+                using (var stream = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = stream.ReadToEnd();
+
+                    JsonDocument doc = JsonDocument.Parse(result);
+                    JsonElement root = doc.RootElement;
+
+                    nombreA_tbx.Text = Convert.ToString(root.GetProperty("apellido_paterno")) +" "+ Convert.ToString(root.GetProperty("apellido_materno"))+" "+Convert.ToString(root.GetProperty("nombre_alumno"));
+                    carr_tbx.Text = Convert.ToString(root.GetProperty("carrera"));
+                    noControl_tbx.Text = Convert.ToString(root.GetProperty("no_de_control"));
+                    semestre_tbx.Text = Convert.ToString(root.GetProperty("semestre"));
+                }
+            }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Se ha buscado más de un registro." +err);
+            }
+            
+
         }
 
         private void noControl_tbx_TextChanged(object sender, EventArgs e)
