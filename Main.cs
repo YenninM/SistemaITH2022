@@ -56,14 +56,6 @@ namespace SistemaITH
             Application.Exit();
         }
 
-        private void list_btn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            listaDeAlumnos frmlist = new listaDeAlumnos();
-            frmlist.FormClosed += (s, args) => this.Close();
-            frmlist.Show();
-        }
-
         private void statics_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,50 +64,10 @@ namespace SistemaITH
             frmstatics.Show();
         }
 
-        private void register_btn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            RegistroAlumnosFrm frmregist = new RegistroAlumnosFrm();
-            frmregist.FormClosed += (s, args) => this.Close();
-            frmregist.Show();
-        }
 
-        private void nombreA_tbx_Enter(object sender, EventArgs e)
-        {
-            if (nombreA_tbx.Text=="Nombre Alumno")
-            {
-                nombreA_tbx.Text = "";
-                nombreA_tbx.ForeColor = Color.DimGray;
-            }
-        }
 
-        private void nombreA_tbx_Leave(object sender, EventArgs e)
-        {
-            if (nombreA_tbx.Text == "")
-            {
-                nombreA_tbx.Text = "Nombre Alumno ";
-                nombreA_tbx.ForeColor = Color.DimGray;
-            }
-        }
 
-        private void noControl_tbx_Enter(object sender, EventArgs e)
-        {
-            if (noControl_tbx.Text=="Número de Control")
-            {
-                noControl_tbx.Text = "";
-                noControl_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void noControl_tbx_Leave(object sender, EventArgs e)
-        {
-            if (noControl_tbx.Text == "")
-            {
-                noControl_tbx.Text = "Número de Control";
-                noControl_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
+        /*
         private void confirm_btn_Click(object sender, EventArgs e)
         {
             try
@@ -148,65 +100,7 @@ namespace SistemaITH
             }
             
 
-        }
+        }*/
 
-        private void noControl_tbx_TextChanged(object sender, EventArgs e)
-        {
-            numcontrol = noControl_tbx.Text;
-        }
-
-        private void carr_tbx_Enter(object sender, EventArgs e)
-        {
-            if (carr_tbx.Text == "Carrera")
-            {
-                carr_tbx.Text = "";
-                carr_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void carr_tbx_Leave(object sender, EventArgs e)
-        {
-            if (carr_tbx.Text == "")
-            {
-                carr_tbx.Text = "Carrera ";
-                carr_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void salon_tbx_Enter(object sender, EventArgs e)
-        {
-            if (salon_tbx.Text == "Salón")
-            {
-                salon_tbx.Text = "";
-                salon_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void salon_tbx_Leave(object sender, EventArgs e)
-        {
-            if (salon_tbx.Text == "")
-            {
-                salon_tbx.Text = "Salón";
-                salon_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void semestre_tbx_Enter(object sender, EventArgs e)
-        {
-            if (semestre_tbx.Text == "Semestre")
-            {
-                semestre_tbx.Text = "";
-                semestre_tbx.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void semestre_tbx_Leave(object sender, EventArgs e)
-        {
-            if (semestre_tbx.Text == "")
-            {
-                semestre_tbx.Text = "Semestre";
-                semestre_tbx.ForeColor = Color.DimGray;
-            }
-        }
     }
 }

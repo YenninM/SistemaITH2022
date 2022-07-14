@@ -88,23 +88,17 @@
     <Compile Include="Estadisticasfrm.Designer.cs">
       <DependentUpon>Estadisticasfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="listaDeAlumnos.cs">
+    <Compile Include="Load.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="listaDeAlumnos.Designer.cs">
-      <DependentUpon>listaDeAlumnos.cs</DependentUpon>
+    <Compile Include="Load.Designer.cs">
+      <DependentUpon>Load.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegistroAlumnosFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegistroAlumnosFrm.Designer.cs">
-      <DependentUpon>RegistroAlumnosFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="SistemaITH.cs">
       <SubType>Form</SubType>
@@ -117,8 +111,8 @@
     <EmbeddedResource Include="Estadisticasfrm.resx">
       <DependentUpon>Estadisticasfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="listaDeAlumnos.resx">
-      <DependentUpon>listaDeAlumnos.cs</DependentUpon>
+    <EmbeddedResource Include="Load.resx">
+      <DependentUpon>Load.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -131,10 +125,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegistroAlumnosFrm.resx">
-      <DependentUpon>RegistroAlumnosFrm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SistemaITH.resx">
       <DependentUpon>SistemaITH.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonfo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />

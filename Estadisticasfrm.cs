@@ -42,28 +42,20 @@ namespace SistemaITH
             Application.Exit();
         }
 
-        private void Ingr_btn_Click_1(object sender, EventArgs e)
+        private void statics_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Main frmmain = new Main();
-            frmmain.FormClosed += (s, args) => this.Close();
-            frmmain.Show();
+            Estadisticasfrm frmstatics = new Estadisticasfrm();
+            frmstatics.FormClosed += (s, args) => this.Close();
+            frmstatics.Show();
         }
 
-        private void List_btn_Click_1(object sender, EventArgs e)
+        private void list_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
             listaDeAlumnos frmlist = new listaDeAlumnos();
             frmlist.FormClosed += (s, args) => this.Close();
             frmlist.Show();
-        }
-
-        private void Register_btn_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            RegistroAlumnosFrm frmregist = new RegistroAlumnosFrm();
-            frmregist.FormClosed += (s, args) => this.Close();
-            frmregist.Show();
         }
     }
 }

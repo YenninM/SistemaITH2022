@@ -16,7 +16,7 @@ namespace SistemaITH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SistemaITH());
+            Application.Run(new Load());
         }
     }
 }
